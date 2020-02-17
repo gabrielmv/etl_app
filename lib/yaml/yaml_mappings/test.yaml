@@ -1,0 +1,11 @@
+identify:
+  - from: CGC/CPF
+    to: id
+  - from: Nome
+    to: name
+  - from: Email
+    to: email
+  - from: Cidade
+    to: location
+  - from: Data Faturamento
+    to: created_at      
