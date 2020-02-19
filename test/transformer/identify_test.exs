@@ -20,49 +20,38 @@ defmodule IdentifyTest do
       parsed_yaml = Yaml.parse("lib/yaml/yaml_mappings/test.yaml")
       columns = Yaml.get_yaml_columns_by_dig_list(parsed_yaml, ["identify"], "to")
       customer = %{
-        "CodEAN" => "8710755117701",
         "CanalVenda" => "906",
-        "RepresCGCCPF" => "7281452780",
-        "RepresNmAbrev" => "7281452780",
+        "RepresCGCCPF" => "54534",
+        "RepresNmAbrev" => "2342342",
         "ValorVenda" => "99,5",
-        "Nome" => "LEILA CRISTINA MARTINS MORAES",
-        "ItemCod" => "4081301119",
-        "Bairro" => "HUMAITA",
-        "Loja" => "Spicy Rio Sul",
-        "UF" => "RJ",
+        "Nome" => "victoria vilas boas",
+        "ItemCod" => "423423",
+        "Bairro" => "cidade nova",
+        "Loja" => "loja da victoria",
+        "UF" => "MG",
         "Telefone" => "",
         "RepresCod" => "3999",
-        "Nome Abrev" => "78434980797",
-        "Endereco" => "RUA HUMAITA, 282",
+        "Nome Abrev" => "02237063290",
+        "Endereco" => "av jose candido",
         "TipoPessoa" => "FISICA",
         "TotalItem" => "19,9",
-        "Cidade" => "RIO DE JANEIRO",
-        "OrigemPedido" => "LOJA 604",
-        "" => "268539",
+        "Cidade" => "belo horizonte",
         "Fabricante" => "BRABANTIA SOLID COMPANY",
-        "Codigo" => "519156",
-        "Sexo" => "",
-        "RepresNome" => "¶ngelo de Carvalho Santos",
+        "Sexo" => "female",
+        "RepresNome" => "teste",
         "DtNascimento" => "",
-        "SubCategoria" => "LIMPEZA",
         "Data Faturamento" => "01/08/2019",
         "CEP" => "22261004.0",
         "PedidoCliente" => "",
-        "CGC/CPF" => "78434980797",
+        "CGC/CPF" => "02237063290",
         "Artigo" => "PANO",
-        "E-Mail" => "",
-        "Categoria" => "LIMPEZA E ORGANIZACAO",
-        "ItemDesc" => "JOGO DE PANO AZ 2PC 30x30cm",
+        "E-Mail" => "victoriaovilas@gmail.com",
         "QtFaturada" => "1"
       }
 
-      assert Identify.filter_column_by_yaml_list(parsed_yaml, customer, columns) == %{ "78434980797" => %{
-        "id" => "78434980797",
-        "name" => "LEILA CRISTINA MARTINS MORAES",
-        "email" => "",
-        "location" => "RIO DE JANEIRO",
-        "created_at" => "01/08/2019"
-      }}
+      assert Identify.filter_column_by_yaml_list(parsed_yaml, customer, columns) == %{"02237063290" =>
+       %{"created_at" => "01/08/2019", "email" => "", "id" => "02237063290", "location" => "belo horizonte", "name" => "victoria vilas boas"}}
+
     end
   end
 end

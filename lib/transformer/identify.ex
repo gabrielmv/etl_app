@@ -3,7 +3,7 @@ defmodule Identify do
   alias Yaml
 
   def get_clients_by_csv do 
-    CsvParser.read("lib/agosto_leb_full.csv")
+    CsvParser.read("lib/base_teste.csv")
   end
 
   def from_to(parsed_yaml, to) do
